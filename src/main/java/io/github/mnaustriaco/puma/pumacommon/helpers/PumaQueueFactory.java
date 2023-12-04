@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public final class PumaQueueFactory {
 
-    public static Queue provideQueueFor(PumaQueues pumaQueues){
-        return new Queue(pumaQueues.toString());
+    public static Queue providePushRequestQueue(){
+        return new Queue(PumaQueues.PUMA_PUSH_REQUEST_QUEUE);
+    }
+
+    public static Queue providePushCompletedQueue(){
+        return new Queue(PumaQueues.PUMA_PUSH_COMPLETE_QUEUE);
     }
 
 }

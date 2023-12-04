@@ -16,11 +16,11 @@ public final class PumaProducer {
 
     public void produceToRequestedQueue(PushRequestedEvent event){
         this.rabbitTemplate.convertAndSend(null,
-                PumaQueues.PUMA_PUSH_REQUEST_QUEUE.toString(), event);
+                PumaQueues.PUMA_PUSH_REQUEST_QUEUE, event);
     }
     public void produceToCompletedQueue(PushCompletedEvent event){
         this.rabbitTemplate.convertAndSend(null,
-                PumaQueues.PUMA_PUSH_COMPLETE_QUEUE.toString(), event);
+                PumaQueues.PUMA_PUSH_COMPLETE_QUEUE, event);
     }
 
     // TODO method overloading for MAIL

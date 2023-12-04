@@ -7,7 +7,7 @@ plugins {
 
 archivesBaseName = 'puma-common'
 group = 'io.github.mnaustriaco.puma'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.3-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
@@ -20,8 +20,12 @@ repositories {
 bootJar {
 	enabled = false
 }
+jar {
+	archiveClassifier = ''
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.amqp:spring-rabbit-test'
 }
@@ -34,12 +38,8 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-
 publishing {
 	publications {
-//		mavenJava(MavenPublication){
-//			artifact jar
-//		}
 		maven(MavenPublication) {
 			groupId = "${group}"
 			artifactId = "${archivesBaseName}"
